@@ -1,4 +1,11 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  HttpException,
+  HttpStatus,
+  Param,
+  Query,
+} from '@nestjs/common';
 
 @Controller('survey')
 export class SurveyController {
@@ -17,6 +24,7 @@ export class SurveyController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return { id, test: 'test' };
+    throw new HttpException('获取数据失败', HttpStatus.BAD_REQUEST);
+    // return { id, test: 'test' };
   }
 }
