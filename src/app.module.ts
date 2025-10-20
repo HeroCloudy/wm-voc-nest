@@ -3,17 +3,22 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SurveyModule } from './survey/survey.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
+import * as process from 'node:process';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'Mysql.123',
-      database: 'voc',
-      synchronize: true,
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT || '', 10) || 3306,
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DBNAME,
+      synchronize: process.env.DB_ASYNC === 'true',
     }),
     SurveyModule,
   ],
