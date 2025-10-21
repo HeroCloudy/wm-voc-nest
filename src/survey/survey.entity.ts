@@ -11,4 +11,7 @@ export class Survey extends BaseEntity {
 
   @Column()
   desc: string;
+
+  @Column()
+  author: string;
 }

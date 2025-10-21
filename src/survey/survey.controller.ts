@@ -7,6 +7,7 @@ import {
   Patch,
   Post,
   Query,
+  Request,
 } from '@nestjs/common';
 import { SurveyService } from './survey.service';
 import { Survey } from './survey.entity';
@@ -30,8 +31,9 @@ export class SurveyController {
   //
 
   @Post()
-  create() {
-    return this.surveyService.create();
+  create(@Request() req: any) {
+    const { username = '' } = req.user;
+    return this.surveyService.create(username);
   }
 
   @Get()

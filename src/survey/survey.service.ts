@@ -9,10 +9,11 @@ export class SurveyService {
     @InjectRepository(Survey) private surveyRepository: Repository<Survey>,
   ) {}
 
-  async create() {
+  async create(username: string) {
     const survey = new Survey();
     survey.title = '问卷标题' + `${new Date().getTime()}`;
     survey.desc = '问卷描述信息...';
+    survey.author = username;
     await this.surveyRepository.insert(survey);
     return survey.id;
   }
