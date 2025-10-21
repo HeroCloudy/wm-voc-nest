@@ -1,6 +1,6 @@
 GET http://localhost:3100/api/auth/profile
 Accept: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODA1ODMwMDgxNTA3NTMyODIiLCJjcmVhdGVkVGltZSI6IjIwMjUtMTAtMjFUMDI6MzI6NDEuMjYzWiIsInVwZGF0ZWRUaW1lIjoiMjAyNS0xMC0yMVQwMjozMjo0MS4yNjNaIiwidXNlcm5hbWUiOiJ6aGFuZ3NhbiIsIm5pY2tuYW1lIjoi5byg5LiJIiwiaWF0IjoxNzYxMDQzNzczLCJleHAiOjE3NjExMzAxNzN9.cgHaSW0XPXmGW-PmjBo8OxKP6tEzZnOVAPQjBLXOEzg
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODA1ODMwMDgxNTA3NTMyODIiLCJjcmVhdGVkVGltZSI6IjIwMjUtMTAtMjFUMDI6MzI6NDEuMjYzWiIsInVwZGF0ZWRUaW1lIjoiMjAyNS0xMC0yMVQwMjozMjo0MS4yNjNaIiwidXNlcm5hbWUiOiJ6aGFuZ3NhbiIsIm5pY2tuYW1lIjoi5byg5LiJIiwiaWF0IjoxNzYxMDQ0NzYxLCJleHAiOjE3NjExMzExNjF9.gtUp9CZkDDwYfdAqR5tux5-RzKVn3jVCQXHPux6Pmtc
 
 ###
 POST http://localhost:3100/api/auth/login
@@ -16,9 +16,9 @@ POST http://localhost:3100/api/user/register
 Content-Type: application/json
 
 {
-  "username": "zhangsan",
+  "username": "lisi",
   "password": "111111",
-  "nickname": "张三"
+  "nickname": "李四"
 }
 ###
 PATCH http://localhost:3100/api/survey/1980554264178593802
