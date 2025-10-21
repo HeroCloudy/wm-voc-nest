@@ -1,8 +1,22 @@
+GET http://localhost:3100/api/user/info
+Accept: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODA1ODMwMDgxNTA3NTMyODIiLCJjcmVhdGVkVGltZSI6IjIwMjUtMTAtMjFUMDI6MzI6NDEuMjYzWiIsInVwZGF0ZWRUaW1lIjoiMjAyNS0xMC0yMVQwMjozMjo0MS4yNjNaIiwidXNlcm5hbWUiOiJ6aGFuZ3NhbiIsIm5pY2tuYW1lIjoi5byg5LiJIiwiaWF0IjoxNzYxMDQ0NzYxLCJleHAiOjE3NjExMzExNjF9.gtUp9CZkDDwYfdAqR5tux5-RzKVn3jVCQXHPux6Pmtc
+
+###
 GET http://localhost:3100/api/auth/profile
 Accept: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODA1ODMwMDgxNTA3NTMyODIiLCJjcmVhdGVkVGltZSI6IjIwMjUtMTAtMjFUMDI6MzI6NDEuMjYzWiIsInVwZGF0ZWRUaW1lIjoiMjAyNS0xMC0yMVQwMjozMjo0MS4yNjNaIiwidXNlcm5hbWUiOiJ6aGFuZ3NhbiIsIm5pY2tuYW1lIjoi5byg5LiJIiwiaWF0IjoxNzYxMDQ0NzYxLCJleHAiOjE3NjExMzExNjF9.gtUp9CZkDDwYfdAqR5tux5-RzKVn3jVCQXHPux6Pmtc
 
 ###
+POST http://localhost:3100/api/user/login
+Content-Type: application/json
+
+{
+  "username": "zhangsan",
+  "password": "111111"
+}
+###
+
 POST http://localhost:3100/api/auth/login
 Content-Type: application/json
 
