@@ -1,3 +1,11 @@
+POST http://localhost:3100/api/user/register
+Content-Type: application/json
+
+{
+  "username": "zhangsan",
+  "password": "111111",
+  "nickname": "张三"
+}
 ###
 PATCH http://localhost:3100/api/survey/1980554264178593802
 Content-Type: application/json

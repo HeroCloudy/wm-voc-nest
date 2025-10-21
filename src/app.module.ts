@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { SurveyModule } from './survey/survey.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { UserModule } from './user/user.module';
 import * as process from 'node:process';
 
 @Module({
@@ -23,6 +24,7 @@ import * as process from 'node:process';
       synchronize: process.env.DB_ASYNC === 'true',
     }),
     SurveyModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
