@@ -1,10 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity } from 'typeorm';
+import { BaseEntity } from '../base/base.entity';
 
 @Entity()
-export class Survey {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class Survey extends BaseEntity {
+  constructor() {
+    super();
+  }
   @Column()
   title: string;
 

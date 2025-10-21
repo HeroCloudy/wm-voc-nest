@@ -1,15 +1,15 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
-  HttpException,
-  HttpStatus,
   Param,
+  Patch,
   Post,
   Query,
 } from '@nestjs/common';
-import { Survey } from './survey.entity';
 import { SurveyService } from './survey.service';
+import { Survey } from './survey.entity';
 
 @Controller('survey')
 export class SurveyController {
@@ -28,24 +28,37 @@ export class SurveyController {
   //   };
   // }
   //
-  // @Get(':id')
-  // findOne(@Param('id') id: string) {
-  //   throw new HttpException('获取数据失败', HttpStatus.BAD_REQUEST);
-  //   // return { id, test: 'test' };
-  // }
 
   @Post()
-  create(@Body() survey: Partial<Survey>) {
-    return this.surveyService.create(survey);
+  create() {
+    return this.surveyService.create();
   }
 
   @Get()
-  findAll() {
-    return this.surveyService.findAll();
+  findAll(
+    @Query('keyword') keyword: string,
+    @Query('page') page: number,
+    @Query('pageSize') pageSize: number,
+  ) {
+    return this.surveyService.findPage({
+      keyword,
+      page,
+      pageSize,
+    });
   }
 
   @Get(':id')
-  findOne(@Param('id') id: number) {
+  findOne(@Param('id') id: string) {
     return this.surveyService.findOne(id);
+  }
+
+  @Delete(':id')
+  deleteOne(@Param('id') id: string) {
+    return this.surveyService.remove(id);
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateData: Partial<Survey>) {
+    return this.surveyService.update(id, updateData);
   }
 }

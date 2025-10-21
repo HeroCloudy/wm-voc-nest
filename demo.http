@@ -1,8 +1,20 @@
-GET http://localhost:3100/api/survey/3
+###
+PATCH http://localhost:3100/api/survey/1980554264178593802
+Content-Type: application/json
+
+{
+  "desc": "测试修改描述信息1111"
+}
+###
+DELETE http://localhost:3100/api/survey/1980554268649721867
 Accept: application/json
 
 ###
-GET http://localhost:3100/api/survey
+GET http://localhost:3100/api/survey/1980554268649721867
+Accept: application/json
+
+###
+GET http://localhost:3100/api/survey?page=1&pageSize=4&keyword=11
 Accept: application/json
 
 ###
@@ -10,10 +22,9 @@ POST http://localhost:3100/api/survey
 Content-Type: application/json
 
 {
-  "title": "测试标题aaa",
-  "desc": "测试描述信息..."
 }
 
 ###
+
 
 
