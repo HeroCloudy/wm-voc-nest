@@ -1,3 +1,12 @@
+POST http://localhost:3100/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "zhangsan",
+  "password": "111111"
+}
+###
+
 POST http://localhost:3100/api/user/register
 Content-Type: application/json
 
