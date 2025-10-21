@@ -1,3 +1,8 @@
+GET http://localhost:3100/api/auth/profile
+Accept: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE5ODA1ODMwMDgxNTA3NTMyODIiLCJjcmVhdGVkVGltZSI6IjIwMjUtMTAtMjFUMDI6MzI6NDEuMjYzWiIsInVwZGF0ZWRUaW1lIjoiMjAyNS0xMC0yMVQwMjozMjo0MS4yNjNaIiwidXNlcm5hbWUiOiJ6aGFuZ3NhbiIsIm5pY2tuYW1lIjoi5byg5LiJIiwiaWF0IjoxNzYxMDQzNzczLCJleHAiOjE3NjExMzAxNzN9.cgHaSW0XPXmGW-PmjBo8OxKP6tEzZnOVAPQjBLXOEzg
+
+###
 POST http://localhost:3100/api/auth/login
 Content-Type: application/json
 
