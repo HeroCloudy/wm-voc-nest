@@ -5,6 +5,7 @@ import { In, Like, Repository } from 'typeorm';
 import { Component } from './component.entity';
 import { SurveyRespDto } from './dto/survey-resp.dto';
 import { FindOptionsWhere } from 'typeorm/find-options/FindOptionsWhere';
+import { TwitterSnowflake } from '@sapphire/snowflake';
 
 @Injectable()
 export class SurveyService {
@@ -95,5 +96,34 @@ export class SurveyService {
     await this.componentRepository.delete({
       surveyId: In(ids),
     });
+  }
+
+  async copy(id: string, author: string) {
+    const dto = await this.findOne(id);
+    if (!dto) {
+      throw new NotFoundException('未找到问卷');
+    }
+    const { componentList = [], title, desc } = dto;
+    const newId = `${TwitterSnowflake.generate()}`;
+    const survey = new Survey();
+    survey.id = newId;
+    survey.author = author;
+    survey.title = title + '副本';
+    survey.desc = desc;
+    survey.isPublished = false;
+    survey.isDeleted = false;
+    survey.isStar = false;
+
+    await this.surveyRepository.save(survey);
+
+    const newList = componentList.map((item) => {
+      return {
+        ...item,
+        id: newId,
+        fe_id: newId,
+      };
+    });
+    await this.componentRepository.save(newList);
+    return survey.id;
   }
 }

@@ -66,4 +66,10 @@ export class SurveyController {
     await this.surveyService.batchRemove(ids);
     return;
   }
+
+  @Post('copy/:id')
+  async copy(@Param('id') id: string, @Req() req: any) {
+    const { username = '' } = req.user;
+    return this.surveyService.copy(id, username);
+  }
 }
