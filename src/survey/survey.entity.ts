@@ -12,6 +12,21 @@ export class Survey extends BaseEntity {
   @Column()
   desc: string;
 
-  @Column()
+  @Column({ nullable: true, default: '' })
+  js: string;
+
+  @Column({ nullable: true, default: '' })
+  css: string;
+
+  @Column({ default: false })
+  isPublished: boolean;
+
+  @Column({ default: false })
+  isStar: boolean;
+
+  @Column({ default: false })
+  isDeleted: boolean;
+
+  @Column({ nullable: false })
   author: string;
 }
